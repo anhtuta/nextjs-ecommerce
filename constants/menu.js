@@ -1,0 +1,77 @@
+import { PREFIX_URL } from "./constants.js";
+
+export const MENU_ITEMS = [
+  {
+    name: "Tuzaku's Bookstore",
+    path: "/",
+    key: "home",
+    level: 1,
+    enabled: true,
+    subItems: null,
+  },
+  {
+    name: "Genres",
+    path: `${PREFIX_URL.genre}`,
+    key: "genre",
+    level: 1,
+    enabled: true,
+    subItems: [
+      {
+        name: "Fiction",
+        path: `${PREFIX_URL.genre}/fiction`,
+        key: "fiction",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
+      {
+        name: "Fantasy",
+        path: `${PREFIX_URL.genre}/fantasy`,
+        key: "fantasy",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
+      {
+        name: "Contemporary",
+        path: `${PREFIX_URL.genre}/contemporary`,
+        key: "contemporary",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
+      {
+        name: "Classics",
+        path: `${PREFIX_URL.genre}/classics`,
+        key: "classics",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
+      {
+        name: "Unknown",
+        path: `${PREFIX_URL.genre}/unknown`,
+        key: "unknown",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
+    ],
+  },
+  {
+    name: "Books",
+    path: "/book",
+    key: "book",
+    level: 1,
+    enabled: true,
+    subItems: null,
+  },
+  {
+    name: "About",
+    path: "/about",
+    key: "about",
+    level: 1,
+    enabled: true,
+    subItems: null,
+  },
+];
