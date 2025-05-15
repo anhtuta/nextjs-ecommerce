@@ -1,9 +1,10 @@
-import React from "react";
 // import { useLocation } from '@reach/router';
 import Link from "next/link";
 import CartButton from "../CartButton";
 // import { CartContext } from '../../context/CartContext';
 import { MENU_ITEMS } from "../../constants/menu";
+import MenuIcon from "../../icons/MenuIcon";
+import { siteMeta } from "../../constants/config";
 
 // Import this and NextJS will treat it as global css. We cannot use global css in component,
 // we can only use module css for component. To use OzMenu.scss, import it in _app.js
@@ -74,9 +75,9 @@ const OzMenu = ({ showCart = true }) => {
   return (
     <>
       <div className="ozmenu-container">
-        {/* <button className="menu-open" onClick={menuToggle}>
-          <span className="open"></span>
-        </button> */}
+        <div className="ozmenu-logo">
+          <Link href="/">{siteMeta.name}</Link>
+        </div>
         <div className="ozmenu">
           <button className="menu-close" onClick={menuToggle}>
             <span className="close"></span>
@@ -94,6 +95,7 @@ const OzMenu = ({ showCart = true }) => {
             )}
           </ul>
         </div>
+        <MenuIcon />
       </div>
       <button id="menu-overlay" onClick={menuToggle} aria-label="Open menu"></button>
     </>

@@ -6,7 +6,7 @@ export const MENU_ITEMS = [
     path: "/",
     key: "home",
     level: 1,
-    enabled: true,
+    enabled: false,
     subItems: null,
   },
   {

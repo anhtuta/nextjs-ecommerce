@@ -1,9 +1,23 @@
-@import '../../styles/style-variables.scss';
+@import "../../styles/style-variables.scss";
 
 .ozmenu-container {
   background: $primary-color-bg;
   padding: 0 $padding-lr;
   z-index: 16;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40px;
+}
+.ozmenu-container .ozmenu-logo a {
+  color: $color-white;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 700;
+  // -webkit-text-stroke: 1px $primary-color-bg-1;
+  // Ref: https://css-tricks.com/adding-stroke-to-web-text/
+  text-shadow: 3px 3px 0 $primary-color-bg-1, -1px -1px 0 $primary-color-bg-1, 1px -1px 0 $primary-color-bg-1,
+    -1px 1px 0 $primary-color-bg-1, 1px 1px 0 $primary-color-bg-1;
 }
 .ozmenu-container button,
 #menu-overlay {
@@ -12,6 +26,10 @@
 }
 
 /* Menu */
+.ozmenu {
+  display: flex;
+  justify-content: space-between;
+}
 .ozmenu ul.ozmenu-nav {
   display: flex;
   align-items: flex-start;
@@ -28,7 +46,7 @@
   transition: 0.3s;
 }
 .ozmenu ul.ozmenu-nav > li .link-wrapper > a {
-  color: #FFF;
+  color: #fff;
   text-decoration: none;
   width: 100%;
   white-space: nowrap;
@@ -166,7 +184,7 @@
     text-align: center;
     float: right;
     background-color: $primary-color-text;
-    content: '';
+    content: "";
     margin: 1px 0px 0px 3px;
     mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path></svg>');
     mask-repeat: no-repeat;
@@ -236,6 +254,7 @@
   }
   .ozmenu {
     display: flex;
+    justify-content: unset;
     flex-direction: column;
     transform: translateX(-100%); // instead of display: none, để có thể add animation cho nó
     background-color: $primary-color-bg;
@@ -263,7 +282,7 @@
     display: block;
     padding: 0 20px;
     width: 100%;
-    height: 100vh;
+    // height: 100vh;
     overflow: auto;
     transform-origin: top center !important;
   }
@@ -368,7 +387,7 @@
     float: right;
     background-color: #7e7e7e;
     // mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-filter-square" viewBox="0 0 16 16"><path d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"></path></svg>');
-    mask-image: url('/img/icons8-menu-rounded-24.png');
+    mask-image: url("/img/icons8-menu-rounded-24.png");
     mask-repeat: no-repeat;
     mask-position: center;
     transition: all 0.2s ease-out;

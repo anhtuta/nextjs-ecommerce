@@ -5,7 +5,7 @@ import utilStyles from "../styles/utils.module.css";
 
 export default function Home() {
   return (
-    <Layout pageTitle={siteMeta.name}>
+    <Layout>
       <Head>
         <title>{siteMeta.name}</title>
       </Head>

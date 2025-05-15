@@ -1,7 +1,8 @@
-@import '../../styles/style-variables.scss';
+@import "../../styles/style-variables.scss";
 
 .flex-row {
   display: flex;
+  gap: $padding-lr;
   // .flex-row-col {
   //   padding: $padding-all;
   // }
@@ -9,7 +10,7 @@
 .equal-columns {
   .flex-row-col {
     flex: 1;
-    padding: $padding-all;
+    // padding: $padding-all;
   }
 }
 
