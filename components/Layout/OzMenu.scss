@@ -1,0 +1,404 @@
+@import '../../styles/style-variables.scss';
+
+.ozmenu-container {
+  background: $primary-color-bg;
+  padding: 0 $padding-lr;
+  z-index: 16;
+}
+.ozmenu-container button,
+#menu-overlay {
+  background: transparent;
+  border: 0;
+}
+
+/* Menu */
+.ozmenu ul.ozmenu-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap; /* nếu menu-item quá nhiều, sẽ được wrap xuống dòng dưới */
+  list-style: none;
+  padding-left: 0;
+}
+.ozmenu ul.ozmenu-nav > li {
+  position: relative;
+  float: left;
+  width: auto;
+}
+.ozmenu ul.ozmenu-nav > li .link-wrapper {
+  transition: 0.3s;
+}
+.ozmenu ul.ozmenu-nav > li .link-wrapper > a {
+  color: #FFF;
+  text-decoration: none;
+  width: 100%;
+  white-space: nowrap;
+  display: inline-block;
+  // font-family: 'Montserrat';
+  font-weight: 700;
+}
+.ozmenu ul.ozmenu-nav > li .link-wrapper:hover {
+  /* color: rgb(0, 0, 0) !important; */
+  background: $primary-color-bg-1;
+}
+.ozmenu ul li.dropdownitem > .link-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.ozmenu ul li.dropdownitem > .link-wrapper > .caret {
+  width: 15px;
+  background-color: #fff;
+  mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+.ozmenu ul li .dropdown {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  width: 100%;
+  z-index: 10;
+}
+@media screen and (min-width: $tablet-width) {
+  .ozmenu ul.ozmenu-nav > li .link-wrapper {
+    padding: 7px 10px;
+    background-color: $primary-color-bg;
+    border-radius: 8px;
+    // font-size: 14px;
+    font-size: 0.9em;
+    // height: 100%;
+    position: relative;
+  }
+  .ozmenu ul li.dropdownitem:hover .dropdown {
+    display: block;
+    position: absolute;
+    margin: 0;
+    padding: 5px 0px;
+    padding-top: 0px !important;
+  }
+  .ozmenu ul li.dropdownitem:hover > .link-wrapper {
+    border-radius: 8px 8px 0px 0px !important;
+  }
+  .ozmenu ul li.dropdownitem ul li.dropdownitem:hover > .link-wrapper {
+    border-radius: 8px !important;
+  }
+  .ozmenu ul li.dropdownitem:hover .dropdown .dropdown {
+    display: none;
+  }
+  .ozmenu ul li.dropdownitem .dropdown li.dropdownitem:hover .dropdown {
+    padding-left: 16px;
+    position: absolute;
+    margin: 0;
+    padding-top: 0px !important;
+    min-width: 200px;
+    display: inline-table;
+    top: 0 !important;
+    left: 100% !important;
+    right: auto !important;
+  }
+  .ozmenu ul li.dropdownitem .dropdown .dropdown .dropdown {
+    display: none !important;
+    visibility: hidden;
+  }
+  .ozmenu ul li.dropdownitem .dropdown ul {
+    list-style: none;
+    background-color: $primary-color-bg;
+    float: left;
+    padding: 10px;
+    border-radius: 0px 8px 8px 8px;
+    width: 100%;
+  }
+  .ozmenu ul li.dropdownitem ul li .link-wrapper {
+    color: #333 !important;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 5px 0px;
+    float: left;
+    width: 100%;
+    border-radius: 0px;
+    // font-size: 14px;
+  }
+  .ozmenu ul.ozmenu-nav .dropdown ul li .link-wrapper:hover {
+    color: #333 !important;
+    padding-left: 7px;
+    transition: all 0.15s ease-out;
+  }
+  /* Animations */
+  .dropdownitem .dropdown {
+    animation: translateDown 200ms 0ms ease-in-out forwards;
+    transform-origin: top center;
+  }
+  .dropdownitem .dropdownitem .dropdown {
+    transform-origin: top center !important;
+    animation: translateX 200ms 0ms ease-in-out forwards !important;
+  }
+  @keyframes translateDown {
+    0% {
+      transform: scaleY(0);
+    }
+    80% {
+      transform: scaleY(1.1);
+    }
+    100% {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes translateX {
+    0% {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    80% {
+      transform: translateX(-5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  /* Dropdown + Dropdown */
+  .ozmenu ul li.dropdownitem ul li .nav-dropdown {
+    display: flex;
+    justify-content: space-between;
+  }
+  .ozmenu ul li.dropdownitem ul li .nav-dropdown > .caret {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    float: right;
+    background-color: $primary-color-text;
+    content: '';
+    margin: 1px 0px 0px 3px;
+    mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path></svg>');
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}
+.ozmenu ul.ozmenu-nav .dropdown ul li {
+  float: left;
+  width: 100%;
+}
+.ozmenu ul.ozmenu-nav .dropdown ul li .link-wrapper {
+  padding: 8px 0px;
+}
+.ozmenu ul li.dropdownitem ul li .link-wrapper,
+.ozmenu ul li.dropdownitem ul li .dropdown ul li .link-wrapper {
+  /* border-bottom: 1px dotted #eee; */
+  border: 0;
+}
+.ozmenu ul li.dropdownitem ul li:last-child .link-wrapper,
+.ozmenu ul li.dropdownitem ul li .dropdown ul li:last-child .link-wrapper {
+  border-bottom: 0px !important;
+}
+/* Dropdown + Dropdown */
+.ozmenu ul li.dropdownitem ul li .link-wrapper:before,
+.ozmenu ul li.dropdownitem ul li .nav-dropdown ul li .link-wrapper > .caret {
+  display: none !important;
+}
+.ozmenu ul li.dropdownitem ul li .nav-dropdown ul li:last-child .link-wrapper {
+  border-bottom: 0px !important;
+}
+.ozmenu ul li.dropdownitem .dropdown ul li.dropdownitem {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+/* Responsive Menu */
+.menu-close,
+.menu-open {
+  display: none;
+  border: none;
+  background: transparent;
+}
+@media screen and (max-width: $tablet-width) {
+  .menu-open,
+  .menu-close {
+    cursor: pointer;
+    color: #333;
+    text-decoration: none;
+    font-size: 26px;
+  }
+  .menu-open {
+    display: block;
+    height: 24px;
+    width: 24px;
+    position: relative;
+  }
+  .menu-open img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .menu-close {
+    display: block;
+    z-index: 15;
+    padding: 0 8px;
+  }
+  .ozmenu {
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%); // instead of display: none, để có thể add animation cho nó
+    background-color: $primary-color-bg;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 70%;
+    height: 100vh;
+  }
+  .ozmenu.active {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-color-bg;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 14;
+    animation: translateX 400ms 0ms ease-in-out forwards !important;
+  }
+  .ozmenu.inactive {
+    animation: translateX_reverse 400ms 0ms ease-in-out forwards !important;
+  }
+  .ozmenu ul.ozmenu-nav {
+    display: block;
+    padding: 0 20px;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    transform-origin: top center !important;
+  }
+  @keyframes translateX {
+    0% {
+      opacity: 0.5;
+      transform: translateX(-100%); /* Equal with its original value */
+    }
+    80% {
+      transform: translateX(-5px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  @keyframes translateX_reverse {
+    0% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+    80% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%); /* Equal with its original value */
+    }
+  }
+  .ozmenu ul.ozmenu-nav > li {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #000000ad;
+  }
+  .ozmenu ul.ozmenu-nav > .item-cart {
+    width: unset;
+    border: none;
+  }
+  .ozmenu ul.ozmenu-nav > li .link-wrapper {
+    float: left;
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0px;
+    /* border-bottom: 1px solid #ddd; */
+  }
+  .ozmenu ul.ozmenu-nav > li .link-wrapper:hover {
+    float: left;
+    width: 100%;
+    transition: all 0.25s ease-out;
+    text-decoration: none;
+    color: rgb(103, 130, 252) !important;
+    padding: 10px 0px;
+  }
+  .ozmenu ul li.dropdownitem > .link-wrapper:hover > .caret {
+    background-color: rgb(103, 130, 252) !important;
+  }
+  .ozmenu ul.ozmenu-nav > li:last-child .link-wrapper {
+    border-bottom: 0px solid #ddd;
+  }
+  .ozmenu.active ul li .nav-dropdown.opened + .dropdown ul {
+    list-style: none;
+    float: left;
+    margin-left: 0px;
+    padding-left: 7px;
+    width: 100%;
+  }
+  .ozmenu.active ul li .nav-dropdown.opened + .dropdown ul .dropdown ul {
+    padding-left: 15px;
+  }
+  .ozmenu.active ul li .nav-dropdown.opened + .dropdown {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 5px 0px;
+    min-width: unset;
+    padding-top: 0px !important;
+    float: left;
+  }
+  .ozmenu.active ul li.dropdownitem:hover + .dropdown + .dropdown {
+    display: none;
+  }
+  #menu-overlay {
+    background-color: rgba(0, 0, 0, 0.3);
+    float: left;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    z-index: 13;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  #menu-overlay.show {
+    display: block !important;
+  }
+  .menu-open .open {
+    width: 40px;
+    height: 40px;
+    float: right;
+    background-color: #7e7e7e;
+    // mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-filter-square" viewBox="0 0 16 16"><path d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"></path></svg>');
+    mask-image: url('/img/icons8-menu-rounded-24.png');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transition: all 0.2s ease-out;
+  }
+  // Trên mobile, khi click nó cũng trigger hover, lúc chuyển page thì cái hover ý nó vẫn bị active (dù component ozmenu có re-render, KHÔNG HIỂU TẠI SAO!!!), do đó cần disable hover đi
+  // .mobile-menu-active .menu-open .open,
+  // .menu-open .open:hover {
+  //   mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="40px" height="40px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-filter-square-fill" viewBox="0 0 16 16"><path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm.5 5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1 0-1zM4 8.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z"></path></svg>');
+  // }
+  .menu-close .close {
+    width: 38px;
+    height: 38px;
+    float: right;
+    background-color: $primary-color-text;
+    mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="38px" height="38px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x close" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path></svg>');
+    mask-repeat: no-repeat;
+    mask-position: center;
+    transition: all 0.2s ease-out;
+  }
+  .menu-close .close:hover {
+    background-color: $primary-color-text;
+    mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path></svg>');
+  }
+
+  .ozmenu.active ul li.dropdownitem > .link-wrapper.opened > .caret {
+    mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="12px" height="12px" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>') !important;
+  }
+}
+@media screen and (max-width: $mobile-width) {
+  .ozmenu {
+    width: 100%;
+  }
+}

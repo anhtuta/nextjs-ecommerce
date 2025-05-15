@@ -1,0 +1,46 @@
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+$primary-color-bg: #088413;
+$primary-color-bg-1: #1eb52b; // nhạt hơn
+$primary-color-bg-1-fade: #1eb52bab;
+$primary-color-shadow: #e3b6008a;
+$primary-color-text: #000;
+$primary-color-text-1: #222222;
+$secondary-color1: #640cab;
+$secondary-color1-1: #9053c1;
+$secondary-color1-2: #4d0885;
+$secondary-color2: #1049a9;
+$secondary-color2-1: #2199f9;
+$secondary-color2-2: #0c3883;
+$secondary-color3: green;
+
+$color-gray: gray;
+$color-gray-1: #c9c9c9;
+$color-gray-1-1: #e2e2e2;
+$color-gray-1-2: #b3b3b3;
+$color-white: #fff;
+$color-white-1: #ededed;
+$color-black: #000;
+
+$padding-lr: 5%; // lr: left, right
+$padding-lr-sm: 2%; // sm: small
+$padding-all: 0.5em $padding-lr;
+$padding-tb: 20px; // tb: top, bottom
+$padding-tb-half: 10px;
+
+$shadow-blur: 0 4px 12px 2px;
+$shadow-blur-s: 0 2px 6px 0px;
+
+$radius-square: 50%;
+$radius-sm: 4px;
+$radius-m: 8px;
+$radius-l: 12px;
+$radius-xl: 20px;
+
+$gap-s: 6px;
+$gap-m: 12px;
+$gap-l: 24px;
+$gap-xl: 36px;
+$gap-xxl: 48px;

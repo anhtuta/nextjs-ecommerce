@@ -1,0 +1,75 @@
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import 'style-variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
+
+ul {
+  padding-inline-start: 40px;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  padding: 0.5em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1.125em;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color-bg;
+  // font-family: Montserrat;
+  font-weight: 700;
+  &:hover {
+    color: $primary-color-bg-1;
+  }
+}
+
+pre,
+code {
+  font-family: monospace, Consolas;
+  overflow: auto;
+}
+
+/* Clone from Layout.module.scss, currently NOT used! */
+.layout-container {
+  .gatsby-image-wrapper {
+    max-height: 45vh;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-width) {
+  h2 {
+    font-size: 1.4em;
+  }
+  h3 {
+    font-size: 1.2em;
+  }
+  h4 {
+    font-size: 1.1em;
+  }
+}

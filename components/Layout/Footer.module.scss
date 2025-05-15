@@ -1,0 +1,32 @@
+@import '../../styles/style-variables.scss';
+
+.siteFooter {
+  padding: $padding-all;
+  padding-bottom: 2em;
+  background-color: $color-gray-1;
+  // * {
+  //   font-family: Montserrat;
+  // }
+  .colHeader {
+    font-weight: 700;
+  }
+  .siteAvatar {
+    text-align: center;
+    img {
+      width: 100%;
+    }
+  }
+}
+.copyright {
+  background-color: $primary-color-bg;
+  color: $color-white;
+  text-align: center;
+  padding: $padding-all;
+}
+
+// Ngược với bên FlexRow.scss
+@media screen and (min-width: $mobile-width) {
+  .site-footer {
+    gap: $padding-lr-sm;
+  }
+}
