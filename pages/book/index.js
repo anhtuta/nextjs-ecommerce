@@ -1,16 +1,15 @@
 import Head from "next/head";
 import Link from "next/link";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout/Layout";
 import { getAllBooks } from "../../lib/book";
 
 export default function BookIndex({ allBooks }) {
   return (
-    <Layout>
+    <Layout pageTitle="Books">
       <Head>
         <title>Books</title>
       </Head>
       <section>
-        <h1>Books</h1>
         <ul>
           {allBooks.map((book) => (
             <li key={book.id}>

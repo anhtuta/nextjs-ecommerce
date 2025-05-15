@@ -1,12 +1,25 @@
-import Layout from "../../components/layout";
+import Head from "next/head";
+import Link from "next/link";
+import Layout from "../../components/Layout/Layout";
 import { getAllGenreSlugs, getGenreData } from "../../lib/book";
 
 export default function GenrePage({ genreData }) {
   return (
-    <Layout>
-      <h1>{genreData.fullName}</h1>
+    <Layout pageTitle={genreData.fullName}>
+      <Head>
+        <title>{genreData.fullName}</title>
+      </Head>
       <p>{genreData.description}</p>
       <img src={genreData.heroImg} alt={genreData.name} />
+      <h2>Books in {genreData.fullName}</h2>
+      <ul>
+        {genreData.books.map((book) => (
+          <li key={book.id}>
+            <Link href={`/book/${book.slug}`}>{book.name}</Link>
+            <p>{book.description}</p>
+          </li>
+        ))}
+      </ul>
     </Layout>
   );
 }

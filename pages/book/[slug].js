@@ -1,10 +1,13 @@
-import Layout from "../../components/layout";
+import Head from "next/head";
+import Layout from "../../components/Layout/Layout";
 import { getAllBookSlugs, getBookData } from "../../lib/book";
 
 export default function BookPage({ bookData }) {
   return (
-    <Layout>
-      <h1>{bookData.fullName}</h1>
+    <Layout pageTitle={bookData.name}>
+      <Head>
+        <title>{bookData.name}</title>
+      </Head>
       <p>{bookData.description}</p>
       <img src={bookData.heroImg} alt={bookData.name} />
     </Layout>
