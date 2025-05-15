@@ -1,0 +1,91 @@
+@import "../styles/style-variables.scss";
+
+.quantityInput {
+  display: inline-grid;
+  grid-template-columns: 1fr min-content;
+  grid-template-areas: "input increment" "input decrement";
+  background-color: $color-gray-1-1;
+  border-radius: $radius-m;
+  height: 48px;
+  overflow: hidden;
+  button {
+    background: none;
+    border: none;
+    padding: 0 4px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    color: $color-gray;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: #232129;
+    }
+    span {
+      display: none;
+    }
+  }
+  .input {
+    grid-area: input;
+    background: none;
+    border: none;
+    padding: 4px;
+    align-self: stretch;
+    width: 6ch;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.05);
+    border-width: 0 1px 0 0;
+    font-weight: 500;
+    color: #232129;
+    text-align: center;
+    &:disabled {
+      color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  .increment {
+    grid-area: increment;
+    border-bottom: 1px rgba(0, 0, 0, 0.05) solid;
+  }
+  .decrement {
+    grid-area: decrement;
+  }
+}
+
+.quantityInput button:disabled:hover,
+.quantityInput button:disabled {
+  background: none;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* On mobile, make the buttons easier to press */
+@media (pointer: coarse) {
+  .quantityResponsive {
+    grid-template-columns: 48px 1fr 48px;
+    grid-template-areas: "decrement input increment";
+    .input {
+      text-align: center;
+      border-width: 0 1px;
+    }
+    button {
+      padding: 0 8px;
+      font-size: 18px;
+      font-weight: 500;
+      &:active {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: #232129;
+      }
+      &:hover {
+        background-color: inherit;
+        color: inherit;
+      }
+      span {
+        display: inline;
+      }
+      svg {
+        display: none;
+      }
+    }
+    .increment {
+      border: none;
+    }
+  }
+}

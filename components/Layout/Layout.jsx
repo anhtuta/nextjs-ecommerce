@@ -1,9 +1,10 @@
-// import { ToastContainer } from 'react-toastify';
+import React from "react";
+import { ToastContainer } from "react-toastify";
 import OzMenu from "./OzMenu";
 import Footer from "./Footer";
-import Loading from "../Loading";
-// import { CartContext } from '../../context/CartContext';
-import { montserrat, lora } from "../../constants/font";
+import CartLoading from "@components/CartLoading";
+import { CartProvider } from "@context/CartContext";
+import { montserrat, lora } from "@constants/font";
 import {
   layoutWrapper,
   contentWrapper,
@@ -22,30 +23,29 @@ import "font-awesome/css/font-awesome.min.css";
  * Chỉ nên dùng 1 trong 2 thuộc tính trên
  */
 const Layout = ({ pageTitle, children, heroImage, heroImageUrl, heroImageUrlAlt, showRightSidebar = false }) => {
-  // const { loading } = React.useContext(CartContext);
-  const loading = false; // todo: remove this line when CartContext is available
+  // const { loading } = React.useContext(CartContext); // cannot use useContext outside of CartProvider --> Use CartLoading instead
   return (
-    <div className={`${layoutWrapper + " " + montserrat.className} layout-container`}>
-      <OzMenu showCart={false} />
-      {heroImage}
-      {heroImageUrl && (
-        <div className={heroWrapper}>
-          <img src={heroImageUrl} alt={heroImageUrlAlt} />
-        </div>
-      )}
-      <div className={contentWrapper}>
-        <main className={`${siteContent} ${showRightSidebar ? leftContent : fullContent}`}>
-          {pageTitle && <h1 className={heading + " " + lora.className}>{pageTitle}</h1>}
-          {children}
-        </main>
-        {showRightSidebar && (
-          <div className={rightSidebar}>{/* <RightSidebar /> */} Right Sidebar has been removed</div>
+    <CartProvider>
+      <div className={`${layoutWrapper + " " + montserrat.className} layout-container`}>
+        <OzMenu showCart={true} />
+        {heroImage}
+        {heroImageUrl && (
+          <div className={heroWrapper}>
+            <img src={heroImageUrl} alt={heroImageUrlAlt} />
+          </div>
         )}
+        <div className={contentWrapper}>
+          <main className={`${siteContent} ${showRightSidebar ? leftContent : fullContent}`}>
+            {pageTitle && <h1 className={heading + " " + lora.className}>{pageTitle}</h1>}
+            {children}
+          </main>
+          {showRightSidebar && <div className={rightSidebar}>Right Sidebar has been removed</div>}
+        </div>
+        <Footer />
+        <CartLoading />
+        <ToastContainer />
       </div>
-      <Footer />
-      <Loading show={loading} />
-      {/* <ToastContainer /> */}
-    </div>
+    </CartProvider>
   );
 };
 

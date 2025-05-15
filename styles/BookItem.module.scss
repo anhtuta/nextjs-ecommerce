@@ -1,0 +1,135 @@
+@import "./style-variables.scss";
+
+.bookWrapper {
+  display: flex;
+  justify-content: space-between;
+  .bookImages {
+    width: 40%;
+  }
+  .bookInfo {
+    width: 58%;
+    .breadcrumb {
+      color: $color-gray;
+      font-size: 0.95em;
+      a {
+        color: $color-gray;
+        text-decoration: none;
+        transition: 0.3s;
+        // font-family: 'Open Sans';
+        font-weight: unset;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    .bookDescription {
+      font-family: Montserrat;
+    }
+    .bookPrice {
+      font-size: 1.2em;
+      font-family: Montserrat;
+      font-weight: 700;
+      color: $secondary-color2-1;
+      font-weight: bold;
+      display: inline-block;
+      padding-right: 10px;
+    }
+    .bookOriginalPrice {
+      font-size: 0.95em;
+      color: $color-gray;
+      text-decoration: line-through;
+      display: inline-block;
+    }
+    .addToCartWrapper {
+      padding: $padding-tb 0;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: min-content max-content;
+    }
+  }
+  .slider {
+    position: relative;
+    padding-top: 100%;
+    display: flex;
+    justify-content: center;
+    .slideItem {
+      .selectedImage {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all 0.3s;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 10px 20px 0 rgb(0 0 0 / 75%);
+      }
+    }
+    input[name="ani"] {
+      display: none;
+      & + .selectedImage {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+      &:checked + .selectedImage {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  .thumbnailWrapper {
+    display: flex;
+    justify-content: center;
+    min-width: min-content;
+    flex-wrap: wrap;
+    .thumbnailItem {
+      margin: 10px 5px 0 5px;
+      border: 3px solid #999;
+      transition: all 0.3s;
+      opacity: 0.6;
+      width: 50px;
+      height: 50px;
+      label {
+        cursor: pointer;
+        .thumbnail {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .activeThumbnail {
+      border-color: #666;
+      opacity: 1;
+    }
+  }
+}
+@media screen and (max-width: $tablet-width) {
+  .bookWrapper {
+    .thumbnailWrapper {
+      .thumbnailItem {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+@media screen and (max-width: $mobile-width) {
+  .bookWrapper {
+    flex-direction: column;
+    .bookImages {
+      width: 100%;
+      margin: auto;
+      padding-bottom: $padding-tb;
+    }
+    .bookInfo {
+      width: 100%;
+      .addToCartWrapper {
+        grid-template-columns: min-content 1fr;
+      }
+    }
+    .thumbnailWrapper {
+      .thumbnailItem {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+}

@@ -45,7 +45,8 @@
 .ozmenu ul.ozmenu-nav > li .link-wrapper {
   transition: 0.3s;
 }
-.ozmenu ul.ozmenu-nav > li .link-wrapper > a {
+.ozmenu ul.ozmenu-nav > li .link-wrapper > a,
+.ozmenu-container .cart-wrapper > a {
   color: #fff;
   text-decoration: none;
   width: 100%;

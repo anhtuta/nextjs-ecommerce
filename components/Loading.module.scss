@@ -1,6 +1,6 @@
-@import '../styles/style-variables.scss';
+@import "../styles/style-variables.scss";
 
-.loading-fs {
+.loadingFs {
   position: fixed;
   top: 0px;
   left: 0;
@@ -14,7 +14,7 @@
   backdrop-filter: blur(2px);
 }
 
-.lds-ring {
+.ldsRing {
   display: inline-block;
   position: relative;
   width: 80px;

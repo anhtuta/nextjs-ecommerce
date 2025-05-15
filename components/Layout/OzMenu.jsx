@@ -1,10 +1,11 @@
 // import { useLocation } from '@reach/router';
+import React from "react";
 import Link from "next/link";
 import CartButton from "../CartButton";
-// import { CartContext } from '../../context/CartContext';
-import { MENU_ITEMS } from "../../constants/menu";
-import MenuIcon from "../../icons/MenuIcon";
-import { siteMeta } from "../../constants/config";
+import { CartContext } from "@context/CartContext";
+import { MENU_ITEMS } from "@constants/menu";
+import MenuIcon from "@icons/MenuIcon";
+import { siteMeta } from "@constants/config";
 
 // Import this and NextJS will treat it as global css. We cannot use global css in component,
 // we can only use module css for component. To use OzMenu.scss, import it in _app.js
@@ -66,8 +67,7 @@ const GenerateMenu = (menuItems) => {
  * Ref: https://www.cssscript.com/demo/responsive-multi-level-dropdown-oz-menu/
  */
 const OzMenu = ({ showCart = true }) => {
-  // const { cart } = React.useContext(CartContext);
-  const cart = [{ id: 1, name: "Product 1", quantity: 2 }]; // todo: remove this line when CartContext is available
+  const { cart } = React.useContext(CartContext);
   const quantity = cart.reduce((total, item) => {
     return total + item.quantity;
   }, 0);
@@ -82,20 +82,16 @@ const OzMenu = ({ showCart = true }) => {
           <button className="menu-close" onClick={menuToggle}>
             <span className="close"></span>
           </button>
-          <ul className="ozmenu-nav">
-            {GenerateMenu(MENU_ITEMS)}
-            {showCart === true && (
-              <li key="li-cart" className="item item-cart">
-                <div className="link-wrapper">
-                  <Link href="/cart">
-                    <CartButton quantity={quantity} />
-                  </Link>
-                </div>
-              </li>
-            )}
-          </ul>
+          <ul className="ozmenu-nav">{GenerateMenu(MENU_ITEMS)}</ul>
         </div>
         <MenuIcon />
+        {showCart === true && (
+          <div className="cart-wrapper">
+            <Link href="/cart">
+              <CartButton quantity={quantity} />
+            </Link>
+          </div>
+        )}
       </div>
       <button id="menu-overlay" onClick={menuToggle} aria-label="Open menu"></button>
     </>

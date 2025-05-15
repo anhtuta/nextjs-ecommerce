@@ -92,8 +92,8 @@ export function getAllBookSlugs(): { params: { slug: string } }[] {
   }));
 }
 
-// Function to get data for a specific book by slug
-export function getBookData(slug: string): Book {
+// Function to get data for a specific book by slug, including its genre
+export function getBookData(slug: string): Book & { genre: Genre } {
   const books = getAllBooks();
   const book = books.find((b) => b.slug === slug);
 
@@ -101,5 +101,18 @@ export function getBookData(slug: string): Book {
     throw new Error(`Book with slug "${slug}" not found`);
   }
 
-  return book;
+  // Get all genres
+  const genres = getAllGenres();
+
+  // Find the category (genre) for the book
+  const genre = genres.find((genre) => genre.id === book.categoryId);
+
+  if (!genre) {
+    throw new Error(`Genre with ID "${book.categoryId}" not found for book "${slug}"`);
+  }
+
+  return {
+    ...book,
+    genre, // Add the category (genre) to the book data
+  };
 }
