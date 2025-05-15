@@ -1,13 +1,13 @@
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-@import 'style-variables.scss';
+// @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+@import "style-variables.scss";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montserrat, Helvetica, Arial, Verdana, Tahoma, sans-serif;
+  // font-family: Montserrat, Helvetica, Arial, Verdana, Tahoma, sans-serif; // set font in layout
 }
 
 ul {

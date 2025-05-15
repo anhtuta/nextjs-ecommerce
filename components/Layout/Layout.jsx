@@ -1,10 +1,9 @@
-import React from "react";
 // import { ToastContainer } from 'react-toastify';
 import OzMenu from "./OzMenu";
-// import SiteTitle from "./SiteTitle";
 import Footer from "./Footer";
 import Loading from "../Loading";
 // import { CartContext } from '../../context/CartContext';
+import { montserrat, lora } from "../../constants/font";
 import {
   layoutWrapper,
   contentWrapper,
@@ -26,8 +25,7 @@ const Layout = ({ pageTitle, children, heroImage, heroImageUrl, heroImageUrlAlt,
   // const { loading } = React.useContext(CartContext);
   const loading = false; // todo: remove this line when CartContext is available
   return (
-    <div className={`${layoutWrapper} layout-container`}>
-      {/* <SiteTitle /> */}
+    <div className={`${layoutWrapper + " " + montserrat.className} layout-container`}>
       <OzMenu showCart={false} />
       {heroImage}
       {heroImageUrl && (
@@ -37,7 +35,7 @@ const Layout = ({ pageTitle, children, heroImage, heroImageUrl, heroImageUrlAlt,
       )}
       <div className={contentWrapper}>
         <main className={`${siteContent} ${showRightSidebar ? leftContent : fullContent}`}>
-          {pageTitle && <h1 className={heading}>{pageTitle}</h1>}
+          {pageTitle && <h1 className={heading + " " + lora.className}>{pageTitle}</h1>}
           {children}
         </main>
         {showRightSidebar && (

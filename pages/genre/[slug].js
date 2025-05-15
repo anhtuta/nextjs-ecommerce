@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { lora } from "../../constants/font";
 import Layout from "../../components/Layout/Layout";
 import { getAllGenreSlugs, getGenreData } from "../../lib/book";
 
@@ -15,7 +16,9 @@ export default function GenrePage({ genreData }) {
       <ul>
         {genreData.books.map((book) => (
           <li key={book.id}>
-            <Link href={`/book/${book.slug}`}>{book.name}</Link>
+            <Link className={lora.className} href={`/book/${book.slug}`}>
+              {book.name}
+            </Link>
             <p>{book.description}</p>
           </li>
         ))}
