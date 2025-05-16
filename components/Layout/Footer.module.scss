@@ -24,7 +24,7 @@
   padding: $padding-all;
 }
 
-// Ngược với bên FlexRow.scss
+// Ngược với bên FlexRow.module.scss
 @media screen and (min-width: $mobile-width) {
   .site-footer {
     gap: $padding-lr-sm;

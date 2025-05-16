@@ -1,21 +1,21 @@
 @import "../../styles/style-variables.scss";
 
-.flex-row {
+.flexRow {
   display: flex;
   gap: $padding-lr;
-  // .flex-row-col {
+  // .flexRowCol {
   //   padding: $padding-all;
   // }
 }
-.equal-columns {
-  .flex-row-col {
+.flexEqualColumns {
+  .flexRowCol {
     flex: 1;
     // padding: $padding-all;
   }
 }
 
 @media screen and (max-width: $mobile-width) {
-  .responsive-columns {
+  .flexResponsiveColumns {
     flex-direction: column;
     gap: $padding-tb;
   }
