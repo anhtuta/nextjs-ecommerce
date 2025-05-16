@@ -1,9 +1,8 @@
 import React from "react";
-import { ToastContainer } from "react-toastify";
 import OzMenu from "./OzMenu";
 import Footer from "./Footer";
-import CartLoading from "@components/CartLoading";
-import { CartProvider } from "@context/CartContext";
+import Loading from "@components/Loading";
+import { CartContext } from "@context/CartContext";
 import { montserrat, lora } from "@constants/font";
 import {
   layoutWrapper,
@@ -23,29 +22,26 @@ import "font-awesome/css/font-awesome.min.css";
  * Chỉ nên dùng 1 trong 2 thuộc tính trên
  */
 const Layout = ({ pageTitle, children, heroImage, heroImageUrl, heroImageUrlAlt, showRightSidebar = false }) => {
-  // const { loading } = React.useContext(CartContext); // cannot use useContext outside of CartProvider --> Use CartLoading instead
+  const { loading } = React.useContext(CartContext);
   return (
-    <CartProvider>
-      <div className={`${layoutWrapper + " " + montserrat.className} layout-container`}>
-        <OzMenu showCart={true} />
-        {heroImage}
-        {heroImageUrl && (
-          <div className={heroWrapper}>
-            <img src={heroImageUrl} alt={heroImageUrlAlt} />
-          </div>
-        )}
-        <div className={contentWrapper}>
-          <main className={`${siteContent} ${showRightSidebar ? leftContent : fullContent}`}>
-            {pageTitle && <h1 className={heading + " " + lora.className}>{pageTitle}</h1>}
-            {children}
-          </main>
-          {showRightSidebar && <div className={rightSidebar}>Right Sidebar has been removed</div>}
+    <div className={`${layoutWrapper + " " + montserrat.className}`}>
+      <OzMenu showCart={true} />
+      {heroImage}
+      {heroImageUrl && (
+        <div className={heroWrapper}>
+          <img src={heroImageUrl} alt={heroImageUrlAlt} />
         </div>
-        <Footer />
-        <CartLoading />
-        <ToastContainer />
+      )}
+      <div className={contentWrapper}>
+        <main className={`${siteContent} ${showRightSidebar ? leftContent : fullContent}`}>
+          {pageTitle && <h1 className={heading + " " + lora.className}>{pageTitle}</h1>}
+          {children}
+        </main>
+        {showRightSidebar && <div className={rightSidebar}>Right Sidebar has been removed</div>}
       </div>
-    </CartProvider>
+      <Footer />
+      <Loading show={loading} />;
+    </div>
   );
 };
 

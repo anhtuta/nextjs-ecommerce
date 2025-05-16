@@ -52,16 +52,6 @@ code {
   overflow: auto;
 }
 
-/* Clone from Layout.module.scss, currently NOT used! */
-.layout-container {
-  .gatsby-image-wrapper {
-    max-height: 45vh;
-    img {
-      width: 100%;
-    }
-  }
-}
-
 @media screen and (max-width: $tablet-width) {
   h2 {
     font-size: 1.4em;
