@@ -1,0 +1,22 @@
+@import "../../styles/style-variables.scss";
+
+.bookList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  // Đừng dùng gap theo percent, vì nếu trên điện thoại, chiều dài rất dài,
+  // thì row-gap sẽ lớn hơn rất nhiều so với column-gap, vì nó lấy percent theo
+  // chiều dài của device
+  // grid-gap: 4%;
+  grid-gap: $gap-l;
+}
+@media screen and (max-width: $tablet-width) {
+  .bookListTablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: $mobile-width) {
+  .bookList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: $gap-m;
+  }
+}

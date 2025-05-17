@@ -1,24 +1,17 @@
-import Head from "next/head";
-import Link from "next/link";
-import Layout from "../../components/Layout/Layout";
+import Layout from "@components/Layout/Layout";
+import Pagination from "@components/Pagination";
+import BookList from "@components/Book/BookList";
+import { PREFIX_URL } from "@constants/constants";
 import { getAllBooks } from "../../lib/book";
 
-export default function BookIndex({ allBooks }) {
+export default function BookListPage({ allBooks }) {
+  const totalPages = 1;
+  const currentPage = 1; // TODO: remove this line when using real data
   return (
     <Layout pageTitle="Books">
-      <Head>
-        <title>Books</title>
-      </Head>
-      <section>
-        <ul>
-          {allBooks.map((book) => (
-            <li key={book.id}>
-              <Link href={`/book/${book.slug}`}>{book.name}</Link>
-              <p>{book.description}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <Pagination baseURL={`${PREFIX_URL.product}`} totalPages={totalPages} currentPage={currentPage} />
+      <BookList books={allBooks} />
+      <Pagination baseURL={`${PREFIX_URL.product}`} totalPages={totalPages} currentPage={currentPage} />
     </Layout>
   );
 }

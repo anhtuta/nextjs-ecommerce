@@ -1,0 +1,116 @@
+@import "../../styles/style-variables.scss";
+
+.bookCard {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: $radius-m;
+  overflow: hidden;
+  transition: 0.2s;
+  // box-shadow: -5px 5px 3px 2px #c9c9c9;
+  // box-shadow: $shadow-blur-s grey;
+  &:hover {
+    box-shadow: $shadow-blur grey;
+    // border: 1px solid $color-gray-1;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  .bookType {
+    padding: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  .bookInfo {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    font-size: 0.8em;
+  }
+  .bookTitle {
+    // white-space: nowrap;
+    // overflow: hidden;
+    // text-overflow: ellipsis;
+    color: $primary-color-text;
+    text-align: left;
+  }
+  .bookPrice {
+    text-align: left;
+    font-style: italic;
+    color: $secondary-color2-1;
+  }
+  /* Ref: https://stackoverflow.com/a/35919373/7688028 */
+  .bookImageSquareWrapper {
+    overflow: hidden;
+    padding-bottom: 100%; /* to make an image square inside */
+    position: relative;
+    cursor: pointer;
+    img {
+      width: 100%;
+      height: 100%;
+      transition: 0.2s;
+      display: block; /* Don't forget this, I don't know why this case need it! */
+      object-fit: cover;
+      position: absolute;
+    }
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+
+  .bookImageWrapper {
+    overflow: hidden;
+
+    //=========== Ta cần set height cho ảnh, để các item trong 1 grid có cùng chiều cao
+    // Solution 1: dùng height
+    // height: 15vw; // Bắt buộc phải set height, nếu ko ảnh của các item bên trong grid sẽ ko cao = nhau
+
+    // Solution 2: dùng aspect-ration
+    // aspect-ratio: 4/3; // Dùng cái này thay cho height, như vậy tỉ lệ ảnh ở mọi màn hình sẽ ko đổi
+    // Nhưng cái aspect-ratio lại KHÔNG hoạt động trên iphone.
+    // Dù làm theo link này nhưng vẫn ko được: https://stackoverflow.com/a/72390001
+
+    // Solution 3: dùng padding-top, chắc cũng tương tự cái bookImageSquareWrapper
+    // Ref: https://www.w3schools.com/howto/howto_css_aspect_ratio.asp
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    img {
+      width: 100%;
+      height: 100%;
+      transition: 0.2s;
+      object-fit: cover;
+
+      // Solution 3: dùng padding-top
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-width) {
+  .bookCardTablet {
+    .bookTitle {
+      font-size: 0.8em;
+    }
+    .bookImageWrapper {
+      height: 20vw;
+    }
+  }
+}
+@media screen and (max-width: $mobile-width) {
+  .bookCard {
+    .bookTitle {
+      font-size: 0.9em;
+    }
+    .bookImageWrapper {
+      height: 25vw;
+    }
+  }
+}

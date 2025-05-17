@@ -3,7 +3,6 @@
 // You cannot import global CSS anywhere elses
 import { ToastContainer } from "react-toastify";
 import { CartProvider } from "@context/CartContext";
-import "../styles/global.css";
 import "../styles/style.scss";
 import "../components/Layout/OzMenu.scss";
 import "react-toastify/dist/ReactToastify.css";
