@@ -3,6 +3,7 @@ import OzMenu from "./OzMenu";
 import Footer from "./Footer";
 import Loading from "@components/Loading";
 import { CartContext } from "@context/CartContext";
+import { siteMeta } from "@constants/config";
 import { montserrat, lora } from "@constants/font";
 import {
   layoutWrapper,
@@ -15,6 +16,7 @@ import {
   rightSidebar,
 } from "./Layout.module.scss";
 import "font-awesome/css/font-awesome.min.css";
+import Head from "next/head";
 
 /**
  * heroImage: component chứa hero image
@@ -25,6 +27,9 @@ const Layout = ({ pageTitle, children, heroImage, heroImageUrl, heroImageUrlAlt,
   const { loading } = React.useContext(CartContext);
   return (
     <div className={`${layoutWrapper + " " + montserrat.className}`}>
+      <Head>
+        <title>{pageTitle || siteMeta.name}</title>
+      </Head>
       <OzMenu showCart={true} />
       {heroImage}
       {heroImageUrl && (
@@ -40,7 +45,7 @@ const Layout = ({ pageTitle, children, heroImage, heroImageUrl, heroImageUrlAlt,
         {showRightSidebar && <div className={rightSidebar}>Right Sidebar has been removed</div>}
       </div>
       <Footer />
-      <Loading show={loading} />;
+      <Loading show={loading} />
     </div>
   );
 };

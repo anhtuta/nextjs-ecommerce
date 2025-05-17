@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import Layout from "../components/Layout/Layout";
 import utilStyles from "../styles/utils.module.css";
@@ -6,9 +5,6 @@ import utilStyles from "../styles/utils.module.css";
 export default function About() {
   return (
     <Layout pageTitle="About us">
-      <Head>
-        <title>About us</title>
-      </Head>
       <p>This is a sample E-commerce site using NextJS</p>
       <p>Created by Tuzaku</p>
       <p>

@@ -9,6 +9,7 @@ import { pagination, active } from "./Pagination.module.scss";
  */
 export default function Pagination(props) {
   const { baseURL, totalPages, currentPage } = props;
+  if (totalPages <= 1) return "";
   const pageArray = [];
   if (totalPages < 10) {
     [...Array(totalPages)].map((_, i) => {
@@ -24,7 +25,6 @@ export default function Pagination(props) {
       pageArray.push(1, 2, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages - 1, totalPages);
     }
   }
-  if (totalPages <= 1) return "";
   return (
     <div className={pagination}>
       <Link href={currentPage <= 2 ? baseURL : `${baseURL}/${currentPage - 1}`}>

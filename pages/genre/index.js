@@ -1,15 +1,11 @@
-import Head from "next/head";
 import Link from "next/link";
 import Layout from "../../components/Layout/Layout";
 import utilStyles from "../../styles/utils.module.css";
 import { getAllGenres } from "../../lib/book";
 
-export default function GenreIndex({ allGenres }) {
+export default function GenreList({ allGenres }) {
   return (
     <Layout pageTitle="Genres">
-      <Head>
-        <title>Genres</title>
-      </Head>
       <section className={utilStyles.headingMd}>
         <ul className={utilStyles.list}>
           {allGenres.map((genre) => (

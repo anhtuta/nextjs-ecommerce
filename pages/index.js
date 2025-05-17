@@ -6,9 +6,6 @@ import utilStyles from "../styles/utils.module.css";
 export default function Home() {
   return (
     <Layout>
-      <Head>
-        <title>{siteMeta.name}</title>
-      </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <p className={utilStyles.headingLg}>Welcome to {siteMeta.name}</p>
       </section>

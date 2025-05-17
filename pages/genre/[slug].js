@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import { lora } from "../../constants/font";
 import Layout from "../../components/Layout/Layout";
@@ -7,9 +6,6 @@ import { getAllGenreSlugs, getGenreData } from "../../lib/book";
 export default function GenrePage({ genreData }) {
   return (
     <Layout pageTitle={genreData.fullName}>
-      <Head>
-        <title>{genreData.fullName}</title>
-      </Head>
       <p>{genreData.description}</p>
       <img src={genreData.heroImg} alt={genreData.name} />
       <h2>Books in {genreData.fullName}</h2>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Head from "next/head";
 import { PREFIX_URL } from "@constants/constants";
 import Layout from "@components/Layout/Layout";
 import QuantityInput from "@components/QuantityInput";
@@ -37,9 +36,6 @@ export default function BookItem({ bookData }) {
   };
   return (
     <Layout pageTitle={bookData.name}>
-      <Head>
-        <title>{bookData.name}</title>
-      </Head>
       <div className={bookWrapper}>
         <div className={bookImages}>
           <div className={slider}>
