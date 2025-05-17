@@ -1,14 +1,11 @@
-.Toastify__toast-container {
-  width: unset;
-}
 .Toastify__toast {
   min-height: unset;
   color: #000;
 }
-.Toastify__toast--success {
-  border: 2px solid #07bc0c;
-  box-shadow: 0 1px 10px 0 #07bc0c91;
-}
+// .Toastify__toast--success {
+//   border: 2px solid #07bc0c;
+//   box-shadow: 0 1px 10px 0 #07bc0c91;
+// }
 
 @media only screen and (max-width: 480px) {
   .Toastify__toast-container {
@@ -18,5 +15,8 @@
     left: unset;
     right: 1em;
     top: 1em;
+  }
+  .Toastify__toast {
+    padding-right: 25px;
   }
 }
