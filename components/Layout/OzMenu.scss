@@ -19,6 +19,10 @@
   text-shadow: 3px 3px 0 $primary-color-bg-1, -1px -1px 0 $primary-color-bg-1, 1px -1px 0 $primary-color-bg-1,
     -1px 1px 0 $primary-color-bg-1, 1px 1px 0 $primary-color-bg-1;
 }
+.ozmenu-container .ozmenu-right {
+  display: flex;
+  align-items: center;
+}
 .ozmenu-container button,
 #menu-overlay {
   background: transparent;
@@ -54,6 +58,9 @@
   display: inline-block;
   // font-family: 'Montserrat';
   font-weight: 700;
+}
+.ozmenu-container .cart-wrapper {
+  color: #fff;
 }
 .ozmenu ul.ozmenu-nav > li .link-wrapper:hover {
   /* color: rgb(0, 0, 0) !important; */
@@ -241,6 +248,7 @@
     height: 24px;
     width: 24px;
     position: relative;
+    margin-left: 8px;
   }
   .menu-open img {
     width: 100%;
@@ -331,11 +339,8 @@
     /* border-bottom: 1px solid #ddd; */
   }
   .ozmenu ul.ozmenu-nav > li .link-wrapper:hover {
-    float: left;
-    width: 100%;
     transition: all 0.25s ease-out;
     text-decoration: none;
-    color: rgb(103, 130, 252) !important;
     padding: 10px 0px;
   }
   .ozmenu ul li.dropdownitem > .link-wrapper:hover > .caret {

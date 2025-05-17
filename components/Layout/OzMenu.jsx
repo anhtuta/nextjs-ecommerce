@@ -78,20 +78,22 @@ const OzMenu = ({ showCart = true }) => {
         <div className="ozmenu-logo">
           <Link href="/">{siteMeta.name}</Link>
         </div>
-        <div className="ozmenu">
-          <button className="menu-close" onClick={menuToggle}>
-            <span className="close"></span>
-          </button>
-          <ul className="ozmenu-nav">{GenerateMenu(MENU_ITEMS)}</ul>
-        </div>
-        <MenuIcon />
-        {showCart === true && (
-          <div className="cart-wrapper">
-            <Link href="/cart">
-              <CartButton quantity={quantity} />
-            </Link>
+        <div className="ozmenu-right">
+          <div className="ozmenu">
+            <button className="menu-close" onClick={menuToggle}>
+              <span className="close"></span>
+            </button>
+            <ul className="ozmenu-nav">{GenerateMenu(MENU_ITEMS)}</ul>
           </div>
-        )}
+          {showCart === true && (
+            <div className="cart-wrapper">
+              <Link href="/cart">
+                <CartButton quantity={quantity} />
+              </Link>
+            </div>
+          )}
+          <MenuIcon />
+        </div>
       </div>
       <button id="menu-overlay" onClick={menuToggle} aria-label="Open menu"></button>
     </>

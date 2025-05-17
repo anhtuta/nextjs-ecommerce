@@ -6,8 +6,8 @@ import { CartProvider } from "@context/CartContext";
 import "../styles/global.css";
 import "../styles/style.scss";
 import "../components/Layout/OzMenu.scss";
-import "../components/Toast.scss";
 import "react-toastify/dist/ReactToastify.css";
+import "../components/Toast.scss";
 
 export default function App({ Component, pageProps }) {
   return (

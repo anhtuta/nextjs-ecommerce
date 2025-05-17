@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Toast from "../components/Toast";
+import Toast from "@lib/toast";
 
 const CART_NAME = "tzk_bookstore_cart";
 const defaultValues = {
