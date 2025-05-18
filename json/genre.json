@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Fiction",
     "fullName": "Fiction",
-    "description": "Fiction is the telling of stories which are not real. More specifically, fiction is an imaginative form of narrative, one of the four basic rhetorical modes. Although the word fiction is derived from the Latin fingo, fingere, finxi, fictum, \"to form, create\", works of fiction need not be entirely imaginary and may include real people, places, and events. Fiction may be either written or oral. Although not all fiction is necessarily artistic, fiction is largely perceived as a form of art or entertainment. The ability to create fiction and other artistic works is considered to be a fundamental aspect of human culture, one of the defining characteristics of humanity.\nRef: https://www.goodreads.com/genres/fiction",
+    "description": "Fiction is the telling of stories which are not real. More specifically, fiction is an imaginative form of narrative, one of the four basic rhetorical modes. Although the word fiction is derived from the Latin fingo, fingere, finxi, fictum, \"to form, create\", works of fiction need not be entirely imaginary and may include real people, places, and events. Fiction may be either written or oral. Although not all fiction is necessarily artistic, fiction is largely perceived as a form of art or entertainment. The ability to create fiction and other artistic works is considered to be a fundamental aspect of human culture, one of the defining characteristics of humanity.<br/><br/>Ref: <a href='https://www.goodreads.com/genres/fiction' target='_blank'>Goodreads</a>",
     "heroImg": "https://blog.nenmongvietnam.com/nmvn/images/test/1.jpg",
     "slug": "fiction"
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "name": "Fantasy",
     "fullName": "Fantasy",
-    "description": "Fantasy is a genre that uses magic and other supernatural forms as a primary element of plot, theme, and/or setting. Fantasy is generally distinguished from science fiction and horror by the expectation that it steers clear of technological and macabre themes, respectively, though there is a great deal of overlap between the three (collectively known as speculative fiction or science fiction/fantasy).\nIn its broadest sense, fantasy comprises works by many writers, artists, filmmakers, and musicians, from ancient myths and legends to many recent works embraced by a wide audience today, including young adults, most of whom are represented by the works below.\nRef: https://www.goodreads.com/genres/fantasy",
+    "description": "Fantasy is a genre that uses magic and other supernatural forms as a primary element of plot, theme, and/or setting. Fantasy is generally distinguished from science fiction and horror by the expectation that it steers clear of technological and macabre themes, respectively, though there is a great deal of overlap between the three (collectively known as speculative fiction or science fiction/fantasy).<br/><br/>In its broadest sense, fantasy comprises works by many writers, artists, filmmakers, and musicians, from ancient myths and legends to many recent works embraced by a wide audience today, including young adults, most of whom are represented by the works below.<br/><br/>Ref: <a href='https://www.goodreads.com/genres/fantasy' target='_blank'>Goodreads</a>",
     "heroImg": "https://blog.nenmongvietnam.com/nmvn/images/test/2.jpg",
     "slug": "fantasy"
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "name": "Contemporary",
     "fullName": "Contemporary",
-    "description": "Literature that largely takes place in the present time.\nRef: https://www.goodreads.com/genres/contemporary",
+    "description": "Literature that largely takes place in the present time.<br/><br/>Ref: <a href='https://www.goodreads.com/genres/contemporary' target='_blank'>Goodreads</a>",
     "heroImg": "https://blog.nenmongvietnam.com/nmvn/images/test/3.jpg",
     "slug": "contemporary"
   },
@@ -27,7 +27,7 @@
     "id": 4,
     "name": "Classics",
     "fullName": "Classics",
-    "description": "A classic stands the test of time. The work is usually considered to be a representation of the period in which it was written; and the work merits lasting recognition. In other words, if the book was published in the recent past, the work is not a classic.\nA classic has a certain universal appeal. Great works of literature touch us to our very core beings--partly because they integrate themes that are understood by readers from a wide range of backgrounds and levels of experience. Themes of love, hate, death, life, and faith touch upon some of our most basic emotional responses.\nRef: https://www.goodreads.com/genres/contemporary",
+    "description": "A classic stands the test of time. The work is usually considered to be a representation of the period in which it was written; and the work merits lasting recognition. In other words, if the book was published in the recent past, the work is not a classic.<br/><br/>A classic has a certain universal appeal. Great works of literature touch us to our very core beings--partly because they integrate themes that are understood by readers from a wide range of backgrounds and levels of experience. Themes of love, hate, death, life, and faith touch upon some of our most basic emotional responses.<br/><br/>Ref: <a href='https://www.goodreads.com/genres/classics' target='_blank'>Goodreads</a>",
     "heroImg": "https://blog.nenmongvietnam.com/nmvn/images/test/4.jpg",
     "slug": "classics"
   },
