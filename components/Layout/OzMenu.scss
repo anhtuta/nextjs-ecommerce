@@ -51,7 +51,7 @@
 }
 .ozmenu ul.ozmenu-nav > li .link-wrapper > a,
 .ozmenu-container .cart-wrapper > a {
-  color: #fff;
+  color: $color-white;
   text-decoration: none;
   width: 100%;
   white-space: nowrap;
@@ -60,7 +60,7 @@
   font-weight: 700;
 }
 .ozmenu-container .cart-wrapper {
-  color: #fff;
+  color: $color-white;
 }
 .ozmenu ul.ozmenu-nav > li .link-wrapper:hover {
   /* color: rgb(0, 0, 0) !important; */
@@ -72,7 +72,7 @@
 }
 .ozmenu ul li.dropdownitem > .link-wrapper > .caret {
   width: 15px;
-  background-color: #fff;
+  background-color: $color-white;
   mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"></path></svg>');
   mask-repeat: no-repeat;
   mask-position: center;
@@ -191,7 +191,7 @@
     height: 15px;
     text-align: center;
     float: right;
-    background-color: $primary-color-text;
+    background-color: $color-black;
     content: "";
     margin: 1px 0px 0px 3px;
     mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="12px" height="12px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path></svg>');
@@ -407,14 +407,14 @@
     width: 38px;
     height: 38px;
     float: right;
-    background-color: $primary-color-text;
+    background-color: $color-black;
     mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="38px" height="38px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-x close" viewBox="0 0 16 16"><path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"></path></svg>');
     mask-repeat: no-repeat;
     mask-position: center;
     transition: all 0.2s ease-out;
   }
   .menu-close .close:hover {
-    background-color: $primary-color-text;
+    background-color: $color-black;
     mask-image: url('data:image/svg+xml;charset=utf-8,<svg width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path></svg>');
   }
 
