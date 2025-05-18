@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import utilStyles from "../../styles/utils.module.css";
 import { getAllGenres } from "../../lib/book";
 
-export default function GenreList({ allGenres }) {
+export default function GenreListPage({ allGenres }) {
   return (
     <Layout pageTitle="Genres">
       <section className={utilStyles.headingMd}>

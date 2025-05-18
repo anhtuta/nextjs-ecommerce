@@ -23,7 +23,7 @@ import {
   addToCartWrapper,
 } from "@styles/BookItem.module.scss";
 
-export default function BookItem({ bookData }) {
+export default function BookItemPage({ bookData }) {
   const [activeImage, setActiveImage] = useState("value0");
   const [quantity, setQuantity] = React.useState(1);
   const selectedBook = {

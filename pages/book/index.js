@@ -5,7 +5,8 @@ import { PREFIX_URL } from "@constants/constants";
 import { getBookListTotalPages, getPaginatedBooks } from "@lib/book";
 
 /**
- * Exactly the same as pages/book/page/[num].js
+ * Page for displaying a list of books with pagination on the first page.
+ * This page is the same as pages/book/page/[num].js
  * The only difference is that this file is used for the first page (page 1)
  * and the other file is used for the rest of the pages (page 2, 3, ...)
  */
