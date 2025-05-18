@@ -1,20 +1,11 @@
-import Layout from "@components/Layout/Layout";
-import Pagination from "@components/Pagination";
-import BookList from "@components/Book/BookList";
-import { PREFIX_URL } from "@constants/constants";
+import BookPagination from "@components/Book/BookPagination";
 import { getBookListTotalPages, getPaginatedBooks } from "@lib/book";
 
 /**
  * Page for displaying a list of books with pagination, starting from page 2.
  */
 export default function BookListPage2({ books, currentPage, totalPages }) {
-  return (
-    <Layout pageTitle="Books">
-      <Pagination baseURL={`${PREFIX_URL.book}`} totalPages={totalPages} currentPage={currentPage} />
-      <BookList books={books} />
-      <Pagination baseURL={`${PREFIX_URL.book}`} totalPages={totalPages} currentPage={currentPage} />
-    </Layout>
-  );
+  return <BookPagination books={books} currentPage={currentPage} totalPages={totalPages} />;
 }
 
 // Generate paths for all page numbers
