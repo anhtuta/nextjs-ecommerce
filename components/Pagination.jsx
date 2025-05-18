@@ -9,6 +9,7 @@ import { pagination, active } from "./Pagination.module.scss";
  */
 export default function Pagination(props) {
   const { baseURL, totalPages, currentPage } = props;
+  const pageURL = baseURL + "/page";
   if (totalPages <= 1) return "";
   const pageArray = [];
   if (totalPages < 10) {
@@ -27,13 +28,13 @@ export default function Pagination(props) {
   }
   return (
     <div className={pagination}>
-      <Link href={currentPage <= 2 ? baseURL : `${baseURL}/${currentPage - 1}`}>
+      <Link href={currentPage <= 2 ? baseURL : `${pageURL}/${currentPage - 1}`}>
         <i className="fa fa-angle-double-left" aria-hidden="true"></i>
       </Link>
       {pageArray.map((page, index) => {
         if (page !== currentPage && page !== "...")
           return (
-            <Link href={page === 1 ? baseURL : `${baseURL}/${page}`} key={index}>
+            <Link href={page === 1 ? baseURL : `${pageURL}/${page}`} key={index}>
               {page}
             </Link>
           );
@@ -44,7 +45,7 @@ export default function Pagination(props) {
             </span>
           );
       })}
-      <Link href={currentPage === totalPages ? `${baseURL}/${currentPage}` : `${baseURL}/${currentPage + 1}`}>
+      <Link href={currentPage === totalPages ? `${pageURL}/${currentPage}` : `${pageURL}/${currentPage + 1}`}>
         <i className="fa fa-angle-double-right" aria-hidden="true"></i>
       </Link>
     </div>

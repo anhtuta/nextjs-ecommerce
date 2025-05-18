@@ -7,6 +7,7 @@ const jsonDirectory = path.join(process.cwd(), "json");
 
 let genreCache: Genre[] | null = null; // Cache to store the parsed genre data
 let bookCache: Book[] | null = null; // Cache to store the parsed book data
+let bookListTotalPages = null;
 
 // Function to get all genres from genre.json
 export function getAllGenres(): Genre[] {
@@ -26,6 +27,14 @@ export function getAllBooks(): Book[] {
     bookCache = JSON.parse(bookData) as Book[]; // Cache the parsed data
   }
   return bookCache;
+}
+
+export function getBookListTotalPages(): number {
+  if (bookListTotalPages === null) {
+    const books = getAllBooks();
+    bookListTotalPages = Math.ceil(books.length / PAGE_SIZE);
+  }
+  return bookListTotalPages;
 }
 
 // Function to get all genre slugs for dynamic page generation
@@ -92,4 +101,11 @@ export function getBookData(slug: string): Book & { genre: Genre } {
     ...book,
     genre, // Add the category (genre) to the book data
   };
+}
+
+export function getPaginatedBooks(page: number): Book[] {
+  const books = getAllBooks();
+  const startIndex = (page - 1) * PAGE_SIZE;
+  const endIndex = startIndex + PAGE_SIZE;
+  return books.slice(startIndex, endIndex);
 }

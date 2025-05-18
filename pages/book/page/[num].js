@@ -4,12 +4,7 @@ import BookList from "@components/Book/BookList";
 import { PREFIX_URL } from "@constants/constants";
 import { getBookListTotalPages, getPaginatedBooks } from "@lib/book";
 
-/**
- * Exactly the same as pages/book/page/[num].js
- * The only difference is that this file is used for the first page (page 1)
- * and the other file is used for the rest of the pages (page 2, 3, ...)
- */
-export default function BookListPage({ books, currentPage, totalPages }) {
+export default function BookListPage2({ books, currentPage, totalPages }) {
   return (
     <Layout pageTitle="Books">
       <Pagination baseURL={`${PREFIX_URL.book}`} totalPages={totalPages} currentPage={currentPage} />
@@ -19,9 +14,19 @@ export default function BookListPage({ books, currentPage, totalPages }) {
   );
 }
 
+// Generate paths for all page numbers
+export async function getStaticPaths() {
+  const totalPages = getBookListTotalPages();
+  const paths = Array.from({ length: totalPages - 1 }, (_, i) => ({
+    // Must return param "num", as this file name is [num].js
+    params: { num: (i + 2).toString() }, // Start from page 2
+  }));
+  return { paths, fallback: false };
+}
+
 // Generate props for each page
 export async function getStaticProps({ params }) {
-  const pageNumber = 1;
+  const pageNumber = parseInt(params.num, 10);
   const totalPages = getBookListTotalPages();
   const books = getPaginatedBooks(pageNumber);
   return {
