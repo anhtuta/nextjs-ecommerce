@@ -8,6 +8,7 @@ const jsonDirectory = path.join(process.cwd(), "json");
 let genreCache: Genre[] | null = null; // Cache to store the parsed genre data
 let bookCache: Book[] | null = null; // Cache to store the parsed book data
 let bookListTotalPages = null;
+let bookByGenreListTotalPages = {};
 
 // Function to get all genres from genre.json
 export function getAllGenres(): Genre[] {
@@ -35,6 +36,16 @@ export function getBookListTotalPages(): number {
     bookListTotalPages = Math.ceil(books.length / PAGE_SIZE);
   }
   return bookListTotalPages;
+}
+
+export function getBookByGenreListTotalPages(genreSlug: string): number {
+  const genreId = getAllGenres().find((genre) => genre.slug === genreSlug)?.id;
+  if (!bookByGenreListTotalPages[genreId]) {
+    const books = getAllBooks();
+    const booksByGenre = books.filter((book) => book.categoryId === genreId);
+    bookByGenreListTotalPages[genreId] = Math.ceil(booksByGenre.length / PAGE_SIZE);
+  }
+  return bookByGenreListTotalPages[genreId];
 }
 
 // Function to get all genre slugs for dynamic page generation
@@ -108,4 +119,19 @@ export function getPaginatedBooks(page: number): Book[] {
   const startIndex = (page - 1) * PAGE_SIZE;
   const endIndex = startIndex + PAGE_SIZE;
   return books.slice(startIndex, endIndex);
+}
+
+export function getPaginatedBooksByGenre(
+  genreId: number,
+  page: number
+): Book[] {
+  const books = getAllBooks();
+  const booksByGenre = books.filter((book) => book.categoryId === genreId);
+  const totalPages = Math.ceil(booksByGenre.length / PAGE_SIZE);
+  if (page > totalPages) {
+    throw new Error(`Page ${page} exceeds total pages ${totalPages}`);
+  }
+  const startIndex = (page - 1) * PAGE_SIZE;
+  const endIndex = startIndex + PAGE_SIZE;
+  return booksByGenre.slice(startIndex, endIndex);
 }
