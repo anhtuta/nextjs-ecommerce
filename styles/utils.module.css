@@ -47,6 +47,10 @@
   margin: 0 0 1.25rem;
 }
 
+.listItemTitle {
+  font-weight: 700;
+}
+
 .lightText {
   color: #666;
 }

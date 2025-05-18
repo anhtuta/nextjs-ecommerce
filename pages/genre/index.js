@@ -8,10 +8,12 @@ export default function GenreListPage({ allGenres }) {
     <Layout pageTitle="Genres">
       <section className={utilStyles.headingMd}>
         <ul className={utilStyles.list}>
-          {allGenres.map((genre) => (
+          {allGenres.map((genre, index) => (
             <li className={utilStyles.listItem} key={genre.id}>
-              <Link href={`/genre/${genre.slug}`}>{genre.fullName}</Link>
-              <p>{genre.description}</p>
+              <Link href={`/genre/${genre.slug}`} className={utilStyles.listItemTitle}>
+                {index + 1}. {genre.fullName}
+              </Link>
+              <p dangerouslySetInnerHTML={{ __html: genre.description }} />
             </li>
           ))}
         </ul>
