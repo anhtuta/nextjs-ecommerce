@@ -266,7 +266,7 @@
     justify-content: unset;
     flex-direction: column;
     transform: translateX(-100%); // instead of display: none, để có thể add animation cho nó
-    background-color: $primary-color-bg;
+    background-color: $color-white;
     position: fixed;
     left: 0;
     top: 0;
@@ -276,7 +276,6 @@
   .ozmenu.active {
     display: flex;
     flex-direction: column;
-    background-color: $primary-color-bg;
     position: fixed;
     left: 0;
     top: 0;
@@ -324,7 +323,7 @@
   .ozmenu ul.ozmenu-nav > li {
     float: left;
     width: 100%;
-    border-bottom: 1px solid #000000ad;
+    border-bottom: 1px solid #bbb;
   }
   .ozmenu ul.ozmenu-nav > .item-cart {
     width: unset;
@@ -338,12 +337,22 @@
     padding: 10px 0px;
     /* border-bottom: 1px solid #ddd; */
   }
+  .ozmenu ul.ozmenu-nav > li .link-wrapper a {
+    color: $primary-color-bg;
+  }
+  .ozmenu ul.ozmenu-nav > li .link-wrapper a:hover {
+    color: $primary-color-bg-1;
+  }
   .ozmenu ul.ozmenu-nav > li .link-wrapper:hover {
     transition: all 0.25s ease-out;
     text-decoration: none;
     padding: 10px 0px;
+    background: $color-white;
   }
-  .ozmenu ul li.dropdownitem > .link-wrapper:hover > .caret {
+  .ozmenu ul li.dropdownitem > .link-wrapper > .caret {
+    background-color: $color-black;
+  }
+  .ozmenu ul li.dropdownitem > .link-wrapper > .caret:hover {
     background-color: rgb(103, 130, 252) !important;
   }
   .ozmenu ul.ozmenu-nav > li:last-child .link-wrapper {

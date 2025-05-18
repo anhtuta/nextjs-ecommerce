@@ -54,7 +54,9 @@ const GenerateMenu = (menuItems) => {
         item.enabled && (
           <li key={item.key} className={`${itemClass} item`} title={item.title ? item.title : ""}>
             <div className="link-wrapper">
-              <Link href={item.path}>{item.name}</Link>
+              <Link href={item.path} onClick={menuToggle}>
+                {item.name}
+              </Link>
             </div>
           </li>
         )
