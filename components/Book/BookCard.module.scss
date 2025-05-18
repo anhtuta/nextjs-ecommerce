@@ -25,7 +25,6 @@
     display: flex;
     flex-direction: column;
     // justify-content: space-between;
-    font-size: 0.8em;
   }
   .bookTitle {
     // white-space: nowrap;
@@ -33,11 +32,13 @@
     // text-overflow: ellipsis;
     color: $primary-color-text;
     text-align: left;
+    font-size: 0.9em;
   }
   .bookPrice {
-    text-align: left;
-    font-style: italic;
     color: $secondary-color2-1;
+    text-align: right;
+    font-size: 0.8em;
+    font-style: italic;
   }
   /* Ref: https://stackoverflow.com/a/35919373/7688028 */
   .bookImageSquareWrapper {

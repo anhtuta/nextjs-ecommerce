@@ -7,7 +7,8 @@
       "@styles/*": ["styles/*"],
       "@constants/*": ["constants/*"],
       "@context/*": ["context/*"],
-      "@icons/*": ["icons/*"]
+      "@icons/*": ["icons/*"],
+      "@types/*": ["types/*"]
     }
   }
 }

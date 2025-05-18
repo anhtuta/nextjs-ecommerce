@@ -1,3 +1,4 @@
+import { Genre, Book } from "../types";
 import fs from "fs";
 import path from "path";
 
@@ -6,30 +7,6 @@ const jsonDirectory = path.join(process.cwd(), "json");
 
 let genreCache: Genre[] | null = null; // Cache to store the parsed genre data
 let bookCache: Book[] | null = null; // Cache to store the parsed book data
-
-export interface Genre {
-  id: number;
-  name: string;
-  fullName?: string;
-  description?: string;
-  heroImg?: string;
-  slug: string;
-}
-
-export interface Book {
-  id: number;
-  name: string;
-  description?: string;
-  categoryId: number;
-  slug: string;
-  sku?: string;
-  heroImg?: string;
-  image?: string[];
-  price?: number;
-  originalPrice?: number;
-  quantity?: number;
-  color?: string;
-}
 
 // Function to get all genres from genre.json
 export function getAllGenres(): Genre[] {
