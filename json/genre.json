@@ -35,7 +35,7 @@
     "id": 5,
     "name": "Unknown",
     "fullName": "Unknown",
-    "description": "Books that are not classified in any genre.",
+    "description": "Books that are not classified in any genre.<script>console.log('Demo XSS')</script>",
     "heroImg": "https://blog.nenmongvietnam.com/nmvn/images/test/5.jpg",
     "slug": "unknown"
   }
