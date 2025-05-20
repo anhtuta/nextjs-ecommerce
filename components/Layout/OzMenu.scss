@@ -1,4 +1,4 @@
-@import "../../styles/style-variables.scss";
+@use "../../styles/style-variables.scss" as *;
 
 .ozmenu-container {
   background: $primary-color-bg;

@@ -16,7 +16,6 @@ const nextConfig = {
   // MUST disable disable the Image Optimization API to generate static HTML pages: https://stackoverflow.com/q/75785972/7688028
   output: "export",
   reactStrictMode: true,
-  swcMinify: true,
   images: {
     unoptimized: true,
   },
