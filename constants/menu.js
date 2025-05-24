@@ -89,6 +89,14 @@ export const MENU_ITEMS = [
         enabled: true,
         subItems: null,
       },
+      {
+        name: "Song CSR SWR",
+        path: `/song-csr-swr`,
+        key: "song-csr-swr",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
     ],
   },
   {
