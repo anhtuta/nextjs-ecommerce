@@ -53,9 +53,9 @@ All pages in the `pages` folder (maybe outdated in the future :D):
 
 ## Server-side Rendering (SSR)
 
-Currently only `/song-ssr` page is using SSR as an example. To use SSR, we must disable static export in [next.config.js](./next.config.js), as this feature requires a NodeJS server
+To use SSR, we must disable static export in [next.config.js](./next.config.js), as this feature requires a NodeJS server
 
-Tức là để dùng SSR ta cần 1 NodeJS server chứ không chỉ đơn thuần là static web server nữa, để nó handle BE API
+Tức là để dùng SSR ta cần 1 NodeJS server chứ không chỉ đơn thuần là static web server nữa, để nó có thể fetch data (từ DB hoặc 1 server API khác)
 
 Nhận xét:
 
@@ -65,3 +65,15 @@ Nhận xét:
 - Test thử thì thấy nó chậm quá
   - Trên [Lili Player](https://anhtuta.github.io/lili-player/#/bai-hat/) thì gọi BE API của LiliPlayer trực tiếp chỉ mất tầm 100-130ms
   - Nhưng trên app này, NodeJS server trên vercel gọi tới LiliPlayer API, xong return response cho client tốn tận 1600ms
+
+## Client-side Rendering (CSR)
+
+CSR is useful when your page **doesn't require SEO indexing**, when you don't need to pre-render your data, or when the content of your pages needs to **update frequently**.
+
+We can use client-side data fetching at the component level
+
+1. Client-side data fetching with `useEffect`
+
+2. Client-side data fetching with [SWR](https://swr.vercel.app/)
+
+Ref: https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side
