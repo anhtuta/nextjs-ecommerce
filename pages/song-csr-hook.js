@@ -10,6 +10,7 @@ import styles from "@styles/Song.module.css";
 export default function SongCSRHook() {
   const [songs, setSongs] = useState([]);
   const [selectedSong, setSelectedSong] = useState(null);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   // Ko liên quan đến cart nhưng vì lười nên dùng chung context với cart :v
   const { setLoadingSleep } = useContext(CartContext);
@@ -27,6 +28,23 @@ export default function SongCSRHook() {
         setLoadingSleep(false);
       });
   }, []);
+
+  // Ask Gemini but it copies from this repo: https://github.com/albertndreu/Teaapl-strapi/blob/master/src/pages/HomePage.js
+  useEffect(() => {
+    const checkScrollTop = () => {
+      if (!showScrollButton && window.pageYOffset > 400) {
+        setShowScrollButton(true);
+      } else if (showScrollButton && window.pageYOffset <= 400) {
+        setShowScrollButton(false);
+      }
+    };
+    window.addEventListener("scroll", checkScrollTop);
+    return () => window.removeEventListener("scroll", checkScrollTop);
+  }, [showScrollButton]);
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const handleSongClick = async (song) => {
     // Can use setSelectedSong(song) directly, but we want to song details from the API to demonstrate CSR
@@ -90,6 +108,9 @@ export default function SongCSRHook() {
             <Button text="Close" onClick={() => setSelectedSong(null)} />
           </div>
         </div>
+      )}
+      {showScrollButton && (
+        <Button text="↑ Top" className={styles.scrollToTopButton} onClick={scrollTop} title="Go to top" />
       )}
     </Layout>
   );
