@@ -67,6 +67,14 @@ export const MENU_ITEMS = [
     subItems: null,
   },
   {
+    name: "Song",
+    path: "/song",
+    key: "song",
+    level: 1,
+    enabled: true,
+    subItems: null,
+  },
+  {
     name: "About",
     path: "/about",
     key: "about",

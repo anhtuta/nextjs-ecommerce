@@ -3,6 +3,22 @@
 // @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 @use "style-variables.scss" as *;
 
+:root {
+  --soy-2024: #2199f9;
+  --soy-2023: #00adb5;
+  --soy-2022: #aa96da;
+  --soy-2021: #f08a5d;
+  --soy-2020: #dbe2ef;
+  --soy-2019: #a6b1e1;
+  --soy-2018: #fc5185;
+  --soy-2017: #61c0bf;
+  --soy-2016: #ceab93;
+  --soy-2015: #b7c4cf;
+  --soy-2014: #99ddcc;
+  --soy-2013: #14ffec;
+  --soy-2012: #e0f9b5;
+}
+
 html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
