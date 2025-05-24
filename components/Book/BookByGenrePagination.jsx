@@ -13,7 +13,12 @@ export default function BookByGenrePagination({ genre, books, currentPage, total
   return (
     <Layout pageTitle={genre.fullName}>
       <div style={{ textAlign: "justify" }} dangerouslySetInnerHTML={{ __html: genre.description }} />
-      <Pagination baseURL={`${PREFIX_URL.genre}/${genre.slug}`} totalPages={totalPages} currentPage={currentPage} />
+      <Pagination
+        baseURL={`${PREFIX_URL.genre}/${genre.slug}`}
+        totalPages={totalPages}
+        currentPage={currentPage}
+        scroll={false}
+      />
       <BookList books={books} />
       <Pagination baseURL={`${PREFIX_URL.genre}/${genre.slug}`} totalPages={totalPages} currentPage={currentPage} />
     </Layout>

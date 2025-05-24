@@ -77,3 +77,9 @@ We can use client-side data fetching at the component level
 2. Client-side data fetching with [SWR](https://swr.vercel.app/)
 
 Ref: https://nextjs.org/docs/pages/building-your-application/data-fetching/client-side
+
+## Keep the scroll position
+
+To keep the scroll position when navigating between pages, we can use the `scroll={false}` prop with the `Link` component. Then, Next.js will navigate to the new page but will **not scroll to the top**, keeping the user's scroll position.
+
+If you want even more control (e.g., scroll to a specific element), you can use a ref and scroll manually in a `useEffect` after route change. --> Ask Copilot if you want that advanced solution!

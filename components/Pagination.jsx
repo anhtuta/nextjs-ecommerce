@@ -7,8 +7,7 @@ import { pagination, active } from "./Pagination.module.scss";
  * - Phần 1: hiển thị currentPage và 2 số cạnh nó (có thể là 2 số bên trái, 2 số bên phải hoặc 1 trái 1 phải)
  * - Phần 2,3: mỗi phần hiển thị 2 số và dấu ...
  */
-export default function Pagination(props) {
-  const { baseURL, totalPages, currentPage } = props;
+export default function Pagination({ baseURL, totalPages, currentPage, scroll = true }) {
   const pageURL = baseURL + "/page";
   if (totalPages <= 1) return "";
   const pageArray = [];
@@ -28,13 +27,13 @@ export default function Pagination(props) {
   }
   return (
     <div className={pagination}>
-      <Link href={currentPage <= 2 ? baseURL : `${pageURL}/${currentPage - 1}`}>
+      <Link href={currentPage <= 2 ? baseURL : `${pageURL}/${currentPage - 1}`} scroll={scroll}>
         <i className="fa fa-angle-double-left" aria-hidden="true"></i>
       </Link>
       {pageArray.map((page, index) => {
         if (page !== currentPage && page !== "...")
           return (
-            <Link href={page === 1 ? baseURL : `${pageURL}/${page}`} key={index}>
+            <Link href={page === 1 ? baseURL : `${pageURL}/${page}`} key={index} scroll={scroll}>
               {page}
             </Link>
           );
@@ -45,7 +44,10 @@ export default function Pagination(props) {
             </span>
           );
       })}
-      <Link href={currentPage === totalPages ? `${pageURL}/${currentPage}` : `${pageURL}/${currentPage + 1}`}>
+      <Link
+        href={currentPage === totalPages ? `${pageURL}/${currentPage}` : `${pageURL}/${currentPage + 1}`}
+        scroll={scroll}
+      >
         <i className="fa fa-angle-double-right" aria-hidden="true"></i>
       </Link>
     </div>
