@@ -1,7 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import styles from "../styles/Song.module.css";
-
-const BASE_URL = "https://blog.nenmongvietnam.com/laravel/public";
+import { BASE_API_URL } from "../constants/constants";
 
 export default function Song({ songs }) {
   return (
@@ -47,7 +46,7 @@ export default function Song({ songs }) {
 // This gets called on every request
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch(`${BASE_URL}/api/song/all?sortBy=listens&sortOrder=DESC`);
+  const res = await fetch(`${BASE_API_URL}/api/song/all?sortBy=listens&sortOrder=DESC`);
   const songs = (await res.json()) || [];
   console.log("Total songs:", songs.length); // cannot see this in the browser console, only in the terminal
 
@@ -55,7 +54,7 @@ export async function getServerSideProps() {
   return { props: { songs } };
 }
 
-const getAbsoluteUrl = (uri) => {
+export const getAbsoluteUrl = (uri) => {
   if (uri.startsWith("http")) return uri;
-  return BASE_URL + uri;
+  return BASE_API_URL + uri;
 };

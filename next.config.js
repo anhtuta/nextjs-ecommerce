@@ -2,7 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  // This option is required for SSG, but we have an example of SSR in the page /song, so we have to disable it
+  // Use this option when we only use SSG, we have to disable it when using SSR
   // output: "export",
 
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`

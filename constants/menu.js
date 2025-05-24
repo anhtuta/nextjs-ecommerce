@@ -68,7 +68,7 @@ export const MENU_ITEMS = [
   },
   {
     name: "Song",
-    path: "/song",
+    path: "/song-ssr",
     key: "song",
     level: 1,
     enabled: true,

@@ -50,3 +50,18 @@ All pages in the `pages` folder (maybe outdated in the future :D):
 6. **All Books for Single Genre (paginated, for second page and beyond)**
    - **URL:** `/genre/[slug]/page/[num]`
    - **File:** [pages/genre/[slug]/page/[num].js](pages/genre/[slug]/page/[num].js)
+
+## Server-side Rendering (SSR)
+
+Currently only `/song-ssr` page is using SSR as an example. To use SSR, we must disable static export in [next.config.js](./next.config.js), as this feature requires a NodeJS server
+
+Tức là để dùng SSR ta cần 1 NodeJS server chứ không chỉ đơn thuần là static web server nữa, để nó handle BE API
+
+Nhận xét:
+
+- Mỗi lần truy cập page `/song-ssr`, server sẽ fetch data và generate HTML, sau đó return response cho từng request
+- Server có thể get data từ DB hoặc nguồn khác, việc fetch rồi xử lý data này sẽ được thực thi trong hàm `getServerSideProps`. Tức là hàm này sẽ được server gọi mỗi khi có request đến (chỉ xảy ra tại server, do đó có thể lưu sensitive data ở đây)
+- Request mà browser fetch: `https://nextjs-ecommerce-phi-lac.vercel.app/_next/data/ffyoerJp3oTqLjRZFEAVv/song-ssr.json`
+- Test thử thì thấy nó chậm quá
+  - Trên [Lili Player](https://anhtuta.github.io/lili-player/#/bai-hat/) thì gọi BE API của LiliPlayer trực tiếp chỉ mất tầm 100-130ms
+  - Nhưng trên app này, NodeJS server trên vercel gọi tới LiliPlayer API, xong return response cho client tốn tận 1600ms
