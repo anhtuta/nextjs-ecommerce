@@ -1,6 +1,6 @@
-import Layout from "../components/Layout/Layout";
-import styles from "../styles/Song.module.css";
-import { BASE_API_URL } from "../constants/constants";
+import Layout from "@components/Layout/Layout";
+import { BASE_API_URL } from "@constants/constants";
+import styles from "@styles/Song.module.css";
 
 export default function Song({ songs }) {
   return (

@@ -46,6 +46,16 @@ export const CartProvider = ({ children }) => {
   };
 
   /**
+   * Hàm này sẽ set loading state và sau đó sẽ fake sleep trong một khoảng thời gian nhất định nếu isLoading là true.
+   */
+  const setLoadingSleep = async (isLoading, ms = 500) => {
+    setLoading(isLoading);
+    if (isLoading) {
+      await sleep(ms);
+    }
+  };
+
+  /**
    * Thêm sản phẩm vào cart
    * @param {JSON} book data, bắt buộc phải có { id, quantity }
    * @param {boolean} isAddNew nếu = true thì sẽ ko cộng dồn cùng với quantity trước đó
@@ -110,6 +120,7 @@ export const CartProvider = ({ children }) => {
         cart,
         loading,
         setLoading,
+        setLoadingSleep,
         addBookToCart,
         removeBookFromCart,
         emptyCart,

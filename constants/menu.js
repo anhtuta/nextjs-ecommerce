@@ -68,11 +68,28 @@ export const MENU_ITEMS = [
   },
   {
     name: "Song",
-    path: "/song-ssr",
+    path: null,
     key: "song",
     level: 1,
-    enabled: true,
-    subItems: null,
+    enabled: false,
+    subItems: [
+      {
+        name: "Song SSR",
+        path: `/song-ssr`,
+        key: "song-ssr",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
+      {
+        name: "Song CSR Hook",
+        path: `/song-csr-hook`,
+        key: "song-csr-hook",
+        level: 2,
+        enabled: true,
+        subItems: null,
+      },
+    ],
   },
   {
     name: "About",
