@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import useSWR from "swr";
 import Layout from "@components/Layout/Layout";
 import Button from "@components/Button";
+import ScrollToTopButton from "@components/ScrollToTopButton";
 import { BASE_API_URL } from "@constants/constants";
 import { CartContext } from "@context/CartContext";
 import toast from "@lib/toast";
@@ -11,7 +12,7 @@ import styles from "@styles/Song.module.css";
 const fetcher = (...args) => fetch(...args);
 
 /**
- * Clone of the SongCSRHook component but using SWR for data fetching
+ * Clone of the SongCSRHook component but using SWR for data fetching (not done yet???)
  */
 export default function SongCSRUsingSWR() {
   const [songs, setSongs] = useState([]);
@@ -97,6 +98,7 @@ export default function SongCSRUsingSWR() {
           </div>
         </div>
       )}
+      <ScrollToTopButton />
     </Layout>
   );
 }
