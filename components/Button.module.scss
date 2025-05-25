@@ -14,4 +14,10 @@
   &:hover {
     box-shadow: $shadow-blur $primary-color-shadow;
   }
+  &:disabled {
+    background-color: $color-gray;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
+  }
 }

@@ -1,9 +1,11 @@
 import React from "react";
 import { siteMeta } from "../../constants/config";
 import FlexRow, { Column } from "./FlexRow";
+import { useOnlineStatus } from "@hooks/useOnlineStatus";
 import { siteFooter, colHeader, copyright } from "./Footer.module.scss";
 
 const Footer = () => {
+  const isOnline = useOnlineStatus();
   return (
     <>
       <FlexRow customClass={siteFooter}>
@@ -31,6 +33,9 @@ const Footer = () => {
           </div>
           <div>
             <i className="fa fa-phone" aria-hidden="true"></i> <a href={`tel:${siteMeta.phone}`}>{siteMeta.phone}</a>
+          </div>
+          <div title={isOnline ? "You're online, not us!" : "You're offline, not us!"} style={{ cursor: "pointer" }}>
+            {isOnline ? "✅ Online" : "❌ Disconnected"}
           </div>
         </Column>
       </FlexRow>
